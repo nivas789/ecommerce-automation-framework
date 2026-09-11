@@ -1,88 +1,212 @@
-# 🛒 E-Commerce Web Application – Automation Testing Framework
+🛒 E-Commerce Web Application – Automation Testing Framework
 
-A scalable automation testing framework developed using **Java, Selenium WebDriver, TestNG, Maven, REST Assured, Apache POI and Extent Reports**.
+A maintainable and scalable Software Development Engineer in Test (SDET) automation framework developed using Java, Selenium WebDriver, TestNG, Maven, REST Assured, Apache POI, and Extent Reports.
 
-The project is designed to demonstrate real-world **Software Development Engineer in Test (SDET)** automation practices including UI automation, API automation, data-driven testing, Page Object Model, test suites, reporting and failure screenshot capture.
+The framework automates critical e-commerce application workflows through both UI automation and REST API testing and provides structured test execution, data-driven testing, failure screenshots, and HTML reporting.
 
----
+📌 Project Overview
 
-## 📌 Project Overview
+The E-Commerce Web Application Automation Testing Framework is designed to demonstrate real-world software testing and SDET automation practices.
 
-This project automates key workflows of an e-commerce web application and provides a structured automation framework for executing UI and API tests.
+The framework automates important e-commerce workflows such as:
 
-The framework follows the **Page Object Model (POM)** design pattern and uses reusable utilities to improve maintainability and scalability.
+User login
 
-### Main Objectives
+Invalid login validation
 
-- Automate critical e-commerce user workflows
-- Implement maintainable Selenium UI automation
-- Implement data-driven testing using Excel
-- Execute tests using TestNG
-- Generate professional Extent Reports
-- Capture screenshots automatically when tests fail
-- Automate REST APIs using REST Assured
-- Organize tests into Smoke, Regression, Full and API suites
-- Build a framework that can be extended for CI/CD and database testing
+Locked user validation
 
----
+Product selection
 
-# 🛠️ Technology Stack
+Add product to cart
 
-| Technology | Purpose |
-|------------|---------|
-| Java 21 | Programming Language |
-| Selenium WebDriver | UI Automation |
-| TestNG | Test Framework |
-| Maven | Build & Dependency Management |
-| REST Assured | API Automation |
-| Apache POI | Excel Data-Driven Testing |
-| Extent Reports | Test Reporting |
-| Google Chrome | Browser |
-| Git | Version Control |
-| GitHub | Source Code Repository |
-| Eclipse | Development Environment |
+Cart validation
 
----
+Checkout
 
-# 🏗️ Framework Architecture
+Order confirmation
 
-```text
-                    E-Commerce Automation Framework
-                                |
-                +---------------+---------------+
-                |                               |
-           UI Automation                  API Automation
-                |                               |
-          Selenium WebDriver              REST Assured
-                |                               |
-             TestNG                         TestNG
-                |                               |
-        Page Object Model                API Test Classes
-                |
-        +-------+-------+
-        |       |       |
-      Pages   Utils    Base
-        |
-     Reports
-        |
-   Extent Reports
-        |
- Failure Screenshots
-```
+In addition to UI automation, the framework also performs REST API testing for product-related operations such as:
 
----
+GET
 
-# 📂 Project Structure
+POST
 
-```text
+PUT
+
+DELETE
+
+The project follows the Page Object Model (POM) design pattern to make the automation code reusable, maintainable, and easier to scale.
+
+🎯 Project Objective
+
+The main objective of this project is to build a complete automation testing framework that demonstrates how an SDET can automate both frontend and backend functionality of an e-commerce application.
+
+Key objectives
+
+Automate critical e-commerce UI workflows
+
+Implement maintainable Selenium automation
+
+Follow the Page Object Model design pattern
+
+Implement explicit waits for reliable execution
+
+Perform positive and negative testing
+
+Implement data-driven testing using Excel
+
+Organize tests using TestNG groups
+
+Create Smoke, Regression, API, and Full test suites
+
+Automate REST APIs using REST Assured
+
+Validate API response data
+
+Capture screenshots when UI tests fail
+
+Generate professional Extent HTML reports
+
+Manage dependencies using Maven
+
+Maintain the project using Git and GitHub
+
+🏗️ Framework Architecture
+
+The framework follows a layered automation architecture.
+
+                    E-COMMERCE APPLICATION
+                            │
+              ┌─────────────┴─────────────┐
+              │                           │
+             UI                          API
+              │                           │
+              ▼                           ▼
+       Selenium WebDriver          REST Assured
+              │                           │
+              └─────────────┬─────────────┘
+                            │
+                            ▼
+                    TESTNG TEST LAYER
+                            │
+              ┌─────────────┼─────────────┐
+              │             │             │
+          Test Classes   Data Driven   Test Suites
+              │             │             │
+              │          Apache POI       │
+              │             │             │
+              └─────────────┼─────────────┘
+                            │
+                            ▼
+                    REPORTING & DEBUGGING
+                            │
+                ┌───────────┴───────────┐
+                │                       │
+          Extent Reports          Screenshots
+
+🧰 Technology Stack
+
+Technology
+
+Purpose
+
+Java
+
+Programming language
+
+Selenium WebDriver
+
+UI/browser automation
+
+TestNG
+
+Test execution, assertions, grouping
+
+Maven
+
+Build and dependency management
+
+REST Assured
+
+REST API automation
+
+Apache POI
+
+Excel-based data-driven testing
+
+Extent Reports
+
+HTML test reporting
+
+Git
+
+Version control
+
+GitHub
+
+Source code repository
+
+Eclipse IDE
+
+Development environment
+
+Chrome
+
+Browser used for UI automation
+
+🌐 Applications Used for Testing
+
+UI Application
+
+The UI automation is implemented against:
+
+SauceDemo
+
+Application URL:
+
+https://www.saucedemo.com/
+
+The framework validates workflows such as login, products, cart, and checkout.
+
+API Application
+
+REST API automation is implemented using:
+
+DummyJSON
+
+Base API:
+
+https://dummyjson.com
+
+The framework performs product API operations using REST Assured.
+
+📂 Project Structure
+
 ecommerce-automation-framework
+│
+├── .gitignore
+├── pom.xml
+├── README.md
+│
+├── reports
+│   ├── ExtentReport.html
+│   │
+│   └── screenshots
+│       ├── addProductToCartTest_*.png
+│       └── completeCheckoutTest_*.png
 │
 ├── src
 │   │
 │   ├── main
+│   │   │
 │   │   ├── java
+│   │   │   │
 │   │   │   ├── base
 │   │   │   │   └── BaseTest.java
+│   │   │   │
+│   │   │   ├── config
+│   │   │   │   └── ConfigReader.java
 │   │   │   │
 │   │   │   ├── pages
 │   │   │   │   ├── LoginPage.java
@@ -90,11 +214,8 @@ ecommerce-automation-framework
 │   │   │   │   ├── CartPage.java
 │   │   │   │   └── CheckoutPage.java
 │   │   │   │
-│   │   │   ├── utils
-│   │   │   │   └── WaitUtils.java
-│   │   │   │
-│   │   │   └── config
-│   │   │       └── ConfigReader.java
+│   │   │   └── utils
+│   │   │       └── WaitUtils.java
 │   │   │
 │   │   └── resources
 │   │       └── config.properties
@@ -102,454 +223,1265 @@ ecommerce-automation-framework
 │   └── test
 │       │
 │       ├── java
+│       │   │
+│       │   ├── api
+│       │   │   └── ProductApiTest.java
+│       │   │
 │       │   ├── tests
 │       │   │   ├── LoginTest.java
 │       │   │   ├── InvalidLoginTest.java
 │       │   │   ├── ProductTest.java
 │       │   │   └── CheckoutTest.java
 │       │   │
-│       │   ├── api
-│       │   │   └── ProductApiTest.java
-│       │   │
 │       │   └── utils
+│       │       ├── ApiUtils.java
 │       │       ├── ExcelUtils.java
-│       │       ├── TestDataProvider.java
 │       │       ├── ExtentReportManager.java
 │       │       ├── ExtentTestListener.java
-│       │       └── ScreenshotUtils.java
+│       │       ├── ScreenshotUtils.java
+│       │       └── TestDataProvider.java
 │       │
 │       └── resources
 │           └── testdata
 │               └── LoginData.xlsx
 │
-├── reports
-├── testng-smoke.xml
-├── testng-regression.xml
-├── testng-full.xml
 ├── testng-api.xml
-├── pom.xml
-└── README.md
-```
+├── testng-full.xml
+├── testng-regression.xml
+└── testng-smoke.xml
 
----
+🧩 Framework Components
 
-# 🧪 UI Automation
+1. BaseTest
 
-The framework currently automates important e-commerce workflows.
+BaseTest.java
 
-## Login Testing
+Provides common WebDriver setup and teardown functionality.
+
+Responsibilities:
+
+Initialize Chrome WebDriver
+
+Read configuration
+
+Open the application URL
+
+Maximize the browser
+
+Close the browser after test execution
+
+2. Page Object Model
+
+The framework follows the Page Object Model (POM) design pattern.
+
+Separate page classes are created for different application pages.
+
+LoginPage
+
+Handles:
+
+Username input
+
+Password input
+
+Login button
+
+Login workflow
+
+HomePage
+
+Handles:
+
+Products page validation
+
+Add product to cart
+
+Cart navigation
+
+CartPage
+
+Handles:
+
+Cart product validation
+
+Checkout navigation
+
+CheckoutPage
+
+Handles:
+
+First name
+
+Last name
+
+Postal code
+
+Continue button
+
+Finish button
+
+Order confirmation
+
+Benefits of POM
+
+Reduces code duplication
+
+Improves maintainability
+
+Separates test logic from page locators
+
+Makes the framework easier to modify
+
+Improves code readability
+
+⏱️ Explicit Wait Framework
+
+The project contains a reusable:
+
+WaitUtils.java
+
+It uses Selenium's WebDriverWait and ExpectedConditions.
+
+Implemented waits include:
+
+Wait for element visibility
+
+Wait for element clickability
+
+Wait for URL containing specific text
+
+This improves test stability compared with using hard-coded delays such as:
+
+Thread.sleep();
+
+🧪 UI Test Automation
+
+Login Testing
+
+The login functionality is tested using both valid and invalid credentials.
+
+Valid Login
+
+The framework verifies that a valid user is successfully redirected to the inventory/products page.
+
+Invalid Login
+
+The framework verifies that an appropriate error message is displayed for invalid credentials.
+
+Locked User
+
+The framework verifies that a locked user cannot log in.
+
+📊 Data-Driven Testing
+
+The project uses:
+
+Apache POI
+
+to read login test data from:
+
+src/test/resources/testdata/LoginData.xlsx
+
+Excel Test Data
+
+Username
+
+Password
+
+Expected Result
+
+standard_user
+
+secret_sauce
+
+success
+
+invalid_user
+
+wrong_password
+
+failure
+
+locked_out_user
+
+secret_sauce
+
+failure
+
+The TestNG DataProvider reads the Excel data and executes the login test for each dataset.
+
+Data-Driven Flow
+
+LoginData.xlsx
+      ↓
+ExcelUtils
+      ↓
+TestDataProvider
+      ↓
+TestNG DataProvider
+      ↓
+LoginTest
+      ↓
+Execute multiple test scenarios
+
+This allows the same test logic to be reused with different input data.
+
+🛍️ Product Testing
+
+The framework automates the following product workflow:
+
+Login
+  ↓
+Products Page
+  ↓
+Select Backpack
+  ↓
+Add to Cart
+  ↓
+Open Cart
+  ↓
+Verify Product
+
+The test validates that the selected product is successfully added to the shopping cart.
+
+🛒 Checkout Testing
+
+The framework automates the complete checkout workflow:
+
+Login
+  ↓
+Products
+  ↓
+Add Product
+  ↓
+Cart
+  ↓
+Checkout
+  ↓
+Enter Customer Details
+  ↓
+Continue
+  ↓
+Finish Order
+  ↓
+Verify Order Confirmation
+
+Customer details used for test execution are:
+
+First Name: Srinivas
+Last Name: Test
+Postal Code: 534101
+
+🔴 Negative Testing
+
+Negative scenarios are included to verify how the application behaves when invalid conditions occur.
 
 Implemented scenarios:
 
-- Valid login
-- Invalid username/password
-- Locked user login
-- Data-driven login testing using Excel
+Invalid Credentials
 
-## Product Testing
+Invalid Username
++
+Invalid Password
+        ↓
+Login
+        ↓
+Error Message
 
-The framework verifies:
+Locked User
 
-- Products page
-- Product selection
-- Add product to cart
-- Cart validation
+Locked User
++
+Valid Password
+        ↓
+Login
+        ↓
+Locked User Error
 
-## Checkout Testing
+Negative testing helps verify that the application handles invalid inputs correctly.
 
-The checkout automation verifies:
+🔌 API Automation
 
-- Customer information entry
-- Checkout process
-- Order completion
-- Order confirmation
+The framework uses:
 
----
+REST Assured
 
-# 📊 Data-Driven Testing
+for backend API automation.
 
-Apache POI is used to read login test data from Excel.
+Reusable API configuration is maintained in:
 
-Example:
+ApiUtils.java
 
-| Username | Password | Expected Result |
-|----------|----------|-----------------|
-| standard_user | secret_sauce | success |
-| invalid_user | wrong_password | failure |
-| locked_out_user | secret_sauce | failure |
+The base API URL is:
 
-Test data location:
+https://dummyjson.com
 
-```text
-src/test/resources/testdata/LoginData.xlsx
-```
+🔍 API Test Cases
 
-The TestNG `DataProvider` reads the Excel data and executes the login test for multiple datasets.
+GET Product
 
----
+Endpoint:
 
-# 🔌 API Automation
-
-REST Assured is used for API automation.
-
-Currently implemented:
-
-### GET
-
-```text
 GET /products/1
-```
 
 Validations include:
 
-- HTTP status code
-- Product ID
-- Product title
-- Product price
-- Product stock
+HTTP status code
 
-### POST
+Product ID
 
-```text
+Product title
+
+Product price
+
+Product stock
+
+Expected HTTP status:
+
+200
+
+POST Product
+
+Endpoint:
+
 POST /products/add
-```
+
+The test creates a product using a JSON request body.
+
+Example request:
+
+{
+  "title": "Test Automation Product",
+  "price": 29.99,
+  "stock": 50
+}
 
 Validations include:
 
-- HTTP status code
-- Created product title
-- Created product price
+HTTP status code
 
-### PUT
+Product title
 
-```text
+Product price
+
+Expected HTTP status:
+
+201
+
+PUT Product
+
+Endpoint:
+
 PUT /products/1
-```
+
+The test updates product information.
+
+Example request:
+
+{
+  "title": "Updated Automation Product",
+  "price": 39.99
+}
 
 Validations include:
 
-- HTTP status code
-- Updated product title
-- Updated product price
+HTTP status code
 
-### DELETE
+Updated product title
 
-```text
+Updated product price
+
+Expected HTTP status:
+
+200
+
+DELETE Product
+
+Endpoint:
+
 DELETE /products/1
-```
 
 Validations include:
 
-- HTTP status code
-- `isDeleted` response value
+HTTP status code
 
----
+isDeleted response value
 
-# 🧪 TestNG Test Suites
+Expected HTTP status:
 
-## Smoke Suite
+200
 
-```text
+🔄 API Automation Flow
+
+REST API
+   │
+   ▼
+Request Specification
+   │
+   ▼
+REST Assured
+   │
+   ▼
+Send HTTP Request
+   │
+   ▼
+Receive Response
+   │
+   ▼
+Validate Status Code
+   │
+   ▼
+Validate Response Data
+   │
+   ▼
+Test Result
+
+🧪 TestNG
+
+TestNG is used as the main testing framework.
+
+The project uses:
+
+@Test
+
+@BeforeMethod
+
+@AfterMethod
+
+@DataProvider
+
+Assertions
+
+Test groups
+
+TestNG XML suites
+
+Test listeners
+
+🏷️ Test Groups
+
+Tests are organized into:
+
+Smoke
+
+Used for critical functionality that should be checked quickly.
+
+smoke
+
+Regression
+
+Used for broader functional validation.
+
+regression
+
+📋 TestNG Test Suites
+
+The project contains four TestNG XML suites.
+
+Smoke Suite
+
 testng-smoke.xml
-```
 
-Runs critical smoke tests.
+Runs tests belonging to the:
 
-```bash
-mvn test -Dsurefire.suiteXmlFiles=testng-smoke.xml
-```
+smoke
 
-## Regression Suite
+group.
 
-```text
+Regression Suite
+
 testng-regression.xml
-```
 
-Runs regression scenarios.
+Runs tests belonging to the:
 
-```bash
-mvn test -Dsurefire.suiteXmlFiles=testng-regression.xml
-```
+regression
 
-## Full Suite
+group.
 
-```text
-testng-full.xml
-```
+API Suite
 
-Runs the complete UI test suite.
-
-```bash
-mvn test -Dsurefire.suiteXmlFiles=testng-full.xml
-```
-
-## API Suite
-
-```text
 testng-api.xml
-```
 
-Runs the API automation suite.
+Runs API automation tests.
 
-```bash
-mvn test -Dsurefire.suiteXmlFiles=testng-api.xml
-```
+Full Suite
 
----
+testng-full.xml
 
-# 📈 Extent Reports
+Runs both:
 
-Extent Reports are integrated into the framework to provide execution reports.
+UI Tests
++
+API Tests
 
-The report contains:
+This is the main complete execution suite.
 
-- Test names
-- Pass/Fail status
-- Execution information
-- Project information
-- Automation tool information
-- Testing framework information
-- Programming language information
+📈 Extent Reports
+
+The project integrates:
+
+Extent Reports
+
+to generate an HTML test execution report.
 
 Report location:
 
-```text
 reports/ExtentReport.html
-```
 
----
+The report provides information about:
 
-# 📸 Automatic Failure Screenshots
+Test names
 
-The framework automatically captures screenshots whenever a test fails.
+Test execution status
 
-Screenshots are stored in:
+Passed tests
 
-```text
+Failed tests
+
+Skipped tests
+
+Failure information
+
+Execution details
+
+📸 Automatic Failure Screenshots
+
+The framework automatically captures screenshots when a UI test fails.
+
+Screenshots are stored under:
+
 reports/screenshots/
-```
-
-The screenshot is also attached to the Extent Report.
-
----
-
-# ⏳ Explicit Waits
-
-A reusable `WaitUtils` class is implemented using Selenium `WebDriverWait`.
-
-Current reusable waits include:
-
-```java
-waitForVisibility()
-waitForClickable()
-waitForUrlContains()
-```
-
-This helps reduce synchronization issues and improves test stability.
-
----
-
-# ⚙️ Configuration
-
-Application configuration is stored in:
-
-```text
-src/main/resources/config.properties
-```
 
 Example:
 
-```properties
+addProductToCartTest_*.png
+completeCheckoutTest_*.png
+
+The screenshot functionality is implemented using:
+
+ScreenshotUtils.java
+
+and integrated with:
+
+ExtentTestListener.java
+
+Failure Handling Flow
+
+Test Execution
+      ↓
+Test Failure
+      ↓
+ExtentTestListener
+      ↓
+Capture Screenshot
+      ↓
+Save Screenshot
+      ↓
+Attach Screenshot to Report
+
+This makes debugging failed UI tests easier.
+
+🔧 Extent Test Listener
+
+The framework implements a custom TestNG listener:
+
+ExtentTestListener.java
+
+The listener handles:
+
+Test start
+
+Test success
+
+Test failure
+
+Test skipped
+
+Screenshot capture on failure
+
+Screenshot attachment to Extent Report
+
+Final report generation
+
+⚙️ Configuration Management
+
+Application configuration is maintained in:
+
+src/main/resources/config.properties
+
+Current configuration includes:
+
 url=https://www.saucedemo.com/
 username=standard_user
 password=secret_sauce
 browser=chrome
-```
 
-> For a public repository, credentials should be moved to environment variables or another secure configuration mechanism rather than storing secrets in Git.
+The configuration is read using:
 
----
+ConfigReader.java
 
-# ▶️ How to Run the Project
+This avoids hard-coding application configuration throughout the test classes.
 
-## Prerequisites
+📦 Maven
 
-Install:
+Maven is used for:
 
-- Java JDK 21+
-- Maven
-- Git
-- Eclipse or IntelliJ IDEA
-- Google Chrome
+Dependency management
 
-Verify Java:
+Project build
 
-```bash
-java -version
-```
+Test execution
 
-Verify Maven:
+TestNG suite execution
 
-```bash
-mvn -version
-```
+The project uses a pom.xml file to manage dependencies.
 
-Verify Git:
+Main Dependencies
 
-```bash
-git --version
-```
+Selenium Java
+TestNG
+REST Assured
+Apache POI
+Extent Reports
 
-## Clone the Repository
+▶️ How to Run the Project
 
-```bash
-git clone <YOUR-GITHUB-REPOSITORY-URL>
+Prerequisites
+
+Install the following:
+
+Java JDK
+
+Maven
+
+Git
+
+Eclipse IDE or another Java IDE
+
+Google Chrome
+
+1. Clone the Repository
+
+git clone https://github.com/nivas789/ecommerce-automation-framework.git
+
+Move into the project:
+
 cd ecommerce-automation-framework
-```
 
-## Install Dependencies
+2. Verify Java
 
-```bash
-mvn clean install
-```
+java -version
 
-## Run UI Smoke Tests
+The project is configured to compile using Java 21.
 
-```bash
+3. Verify Maven
+
+mvn -version
+
+4. Run Smoke Tests
+
 mvn test -Dsurefire.suiteXmlFiles=testng-smoke.xml
-```
 
-## Run UI Regression Tests
+5. Run Regression Tests
 
-```bash
 mvn test -Dsurefire.suiteXmlFiles=testng-regression.xml
-```
 
-## Run Full UI Suite
+6. Run API Tests
 
-```bash
-mvn test -Dsurefire.suiteXmlFiles=testng-full.xml
-```
-
-## Run API Suite
-
-```bash
 mvn test -Dsurefire.suiteXmlFiles=testng-api.xml
-```
 
-## Run Individual API Test Class
+7. Run Complete UI + API Suite
 
-```bash
-mvn -Dtest=api.ProductApiTest test
-```
+mvn test -Dsurefire.suiteXmlFiles=testng-full.xml
 
----
+The full suite executes both UI and API tests.
 
-# ✅ Current Project Status
+✅ Current Test Execution Result
 
-| Area | Status |
-|------|--------|
-| Valid Login | ✅ Completed |
-| Invalid Login | ✅ Completed |
-| Locked User Login | ✅ Completed |
-| Excel Data-Driven Login | ✅ Completed |
-| Product / Cart | ✅ Completed |
-| Checkout | ✅ Completed |
-| Explicit Waits | ✅ Completed |
-| TestNG Groups | ✅ Completed |
-| Smoke Suite | ✅ Completed |
-| Regression Suite | ✅ Completed |
-| Full UI Suite | ✅ Completed |
-| Extent Reports | ✅ Completed |
-| Failure Screenshots | ✅ Completed |
-| REST API GET | ✅ Completed |
-| REST API POST | ✅ Completed |
-| REST API PUT | ✅ Completed |
-| REST API DELETE | ✅ Completed |
-| Dedicated API Suite | ✅ Completed |
-| Reusable API Request Specification | 🔄 In Progress |
-| API Negative Testing | ⏳ Planned |
-| Database Validation | ⏳ Planned |
-| CI/CD with GitHub Actions | ⏳ Planned |
-| Advanced Framework Refactoring | ⏳ Planned |
+The complete framework was successfully executed.
 
----
+Final execution result:
 
-# 🚧 Remaining Roadmap
+Tests run: 11
+Failures: 0
+Errors: 0
+Skipped: 0
 
-## Phase 1 — API Framework Improvements
+BUILD SUCCESS
 
-- Reusable `RequestSpecification`
-- Centralized API base URI
-- API request/response logging
-- Negative API testing
-- Authentication handling
-- JSON schema validation
+Test Distribution
 
-## Phase 2 — Database Testing
+UI Automation
+     ↓
+7 Tests
+     ↓
+PASS
 
-- JDBC integration
-- Database validation
-- UI/API/DB end-to-end validation
+API Automation
+     ↓
+4 Tests
+     ↓
+PASS
 
-## Phase 3 — Framework Improvements
+-------------------
+Total: 11 Tests
+Passed: 11
+Failed: 0
 
-- Better configuration management
-- Reusable constants
-- Improved exception handling
-- Logging
-- Parallel execution
-- Cross-browser execution
+📊 Current Test Coverage
 
-## Phase 4 — CI/CD
+Area
 
-- GitHub Actions
-- Automated test execution
-- Test reports in CI
-- Build status tracking
+Test Type
 
-## Phase 5 — Final Documentation
+Status
 
-- Test case documentation
-- Test execution documentation
-- Framework architecture documentation
-- SDET interview preparation
-- Final project cleanup
+Valid Login
 
----
+UI
 
-# 🎯 Learning Outcomes
+✅
+
+Invalid Login
+
+UI
+
+✅
+
+Locked User Login
+
+UI
+
+✅
+
+Product / Cart
+
+UI
+
+✅
+
+Checkout
+
+UI
+
+✅
+
+Data-Driven Login Scenarios
+
+UI
+
+✅
+
+API GET Product
+
+API
+
+✅
+
+API POST Product
+
+API
+
+✅
+
+API PUT Product
+
+API
+
+✅
+
+API DELETE Product
+
+API
+
+✅
+
+Extent Reporting
+
+Reporting
+
+✅
+
+Failure Screenshots
+
+Reporting
+
+✅
+
+🧠 Real-World Use Case
+
+In a real e-commerce company, developers continuously modify application functionality.
+
+For example:
+
+Developer changes Login
+        ↓
+Developer changes Cart
+        ↓
+Developer changes Checkout
+        ↓
+New application build
+
+The QA/SDET team needs to verify that existing functionality has not been broken.
+
+Instead of manually testing every workflow, an automation framework can execute the tests automatically.
+
+New Build
+   ↓
+Smoke Tests
+   ↓
+Regression Tests
+   ↓
+API Tests
+   ↓
+Full Automation Suite
+   ↓
+Test Results
+   ↓
+Extent Report
+
+This helps organizations:
+
+Reduce manual testing effort
+
+Detect defects earlier
+
+Improve regression coverage
+
+Execute repetitive tests quickly
+
+Generate consistent test results
+
+Improve debugging
+
+Increase confidence before releases
+
+🌍 Where This Framework Can Be Used
+
+The same automation framework concepts can be applied to many domains.
+
+E-Commerce
+
+Login
+
+Product search
+
+Cart
+
+Checkout
+
+Orders
+
+Payments
+
+APIs
+
+Banking
+
+Login
+
+Account management
+
+Transactions
+
+Fund transfers
+
+Transaction history
+
+Healthcare
+
+Patient login
+
+Appointment booking
+
+Doctor selection
+
+Patient records
+
+Travel
+
+Flight search
+
+Hotel booking
+
+Passenger details
+
+Booking confirmation
+
+The application changes, but the underlying automation concepts remain similar.
+
+🧪 Testing Approach
+
+The project follows multiple testing approaches.
+
+Functional Testing
+
+Verifies that application functionality works as expected.
+
+Positive Testing
+
+Uses valid inputs and verifies successful workflows.
+
+Negative Testing
+
+Uses invalid inputs and verifies proper error handling.
+
+Regression Testing
+
+Ensures existing functionality continues to work after changes.
+
+Smoke Testing
+
+Quickly validates critical application functionality.
+
+Data-Driven Testing
+
+Executes the same test with multiple sets of external data.
+
+UI Automation
+
+Automates browser-based application workflows.
+
+API Automation
+
+Validates backend REST API functionality.
+
+📐 Design Principles Used
+
+The framework follows several automation best practices.
+
+Page Object Model
+
+Separates page-specific elements and actions from test cases.
+
+Reusable Utilities
+
+Common functionality is centralized into utility classes.
+
+Explicit Waits
+
+Improves synchronization with web elements.
+
+TestNG Groups
+
+Allows selective execution of test categories.
+
+Data-Driven Testing
+
+Separates test data from test logic.
+
+Listener-Based Reporting
+
+Centralizes reporting and failure handling.
+
+Configuration Management
+
+Stores application configuration separately from test code.
+
+🗂️ Important Classes
+
+Class
+
+Responsibility
+
+BaseTest
+
+WebDriver setup and teardown
+
+ConfigReader
+
+Reads configuration properties
+
+LoginPage
+
+Login page actions
+
+HomePage
+
+Product page actions
+
+CartPage
+
+Cart operations
+
+CheckoutPage
+
+Checkout operations
+
+WaitUtils
+
+Explicit wait utilities
+
+LoginTest
+
+Data-driven login testing
+
+InvalidLoginTest
+
+Negative login testing
+
+ProductTest
+
+Product/cart testing
+
+CheckoutTest
+
+Checkout workflow testing
+
+ProductApiTest
+
+REST API testing
+
+ApiUtils
+
+Reusable API configuration
+
+ExcelUtils
+
+Excel data reading
+
+TestDataProvider
+
+TestNG data provider
+
+ExtentReportManager
+
+Extent report configuration
+
+ExtentTestListener
+
+Test result handling
+
+ScreenshotUtils
+
+Failure screenshot capture
+
+🔐 Test Data
+
+Login test data is maintained separately in:
+
+src/test/resources/testdata/LoginData.xlsx
+
+This demonstrates the separation of:
+
+Test Logic
+     +
+Test Data
+
+which improves maintainability and makes it easier to add additional test scenarios.
+
+📌 Git & GitHub
+
+The project is maintained using Git for version control and hosted publicly on GitHub.
+
+Repository:
+
+https://github.com/nivas789/ecommerce-automation-framework
+
+The project includes:
+
+Git repository
+Git commits
+main branch
+GitHub remote repository
+
+The complete project has been successfully pushed to GitHub.
+
+🏆 Key Features
+
+✅ Selenium WebDriver
+✅ Java
+✅ TestNG
+✅ Maven
+✅ Page Object Model
+✅ Explicit Waits
+✅ Positive Testing
+✅ Negative Testing
+✅ Data-Driven Testing
+✅ Apache POI
+✅ Smoke Testing
+✅ Regression Testing
+✅ REST API Automation
+✅ REST Assured
+✅ GET API Testing
+✅ POST API Testing
+✅ PUT API Testing
+✅ DELETE API Testing
+✅ TestNG XML Suites
+✅ Extent Reports
+✅ Failure Screenshots
+✅ Custom TestNG Listener
+✅ Configuration Management
+✅ Git
+✅ GitHub
+
+🚀 Future Enhancements
+
+The current framework is complete for the implemented scope. The following features can be added in future versions:
+
+Cross-browser testing
+
+Parallel test execution
+
+JDBC/database validation
+
+More UI test cases
+
+More API test scenarios
+
+Environment-specific configuration
+
+Advanced logging
+
+CI/CD integration using GitHub Actions
+
+Automated test execution on every GitHub push
+
+Docker-based test execution
+
+Advanced API schema validation
+
+Additional reporting enhancements
+
+These are planned enhancements and are not part of the current completed implementation.
+
+💼 Skills Demonstrated
 
 This project demonstrates practical knowledge of:
 
-- Selenium WebDriver
-- Java automation
-- TestNG
-- Maven
-- Page Object Model
-- Data-driven testing
-- Apache POI
-- REST Assured
-- API testing
-- JSON validation
-- TestNG suites
-- Extent Reports
-- Failure screenshot capture
-- Git and GitHub
-- Automation framework design
+Programming
 
----
+Java
 
-# 👨‍💻 Author
+Object-Oriented Programming
 
-**Srinivas**
+UI Automation
 
-B.Tech – Computer Science & Engineering
+Selenium WebDriver
 
----
+Locators
 
-# 📌 Project Status
+WebDriverWait
 
-**Active Development 🚀**
+Expected Conditions
 
-The framework is being continuously enhanced with additional API automation, database validation, CI/CD integration and advanced SDET practices.
+Page Object Model
+
+Test Automation
+
+TestNG
+
+Assertions
+
+Data Providers
+
+Test Groups
+
+TestNG XML
+
+API Testing
+
+REST Assured
+
+HTTP methods
+
+GET
+
+POST
+
+PUT
+
+DELETE
+
+JSON response validation
+
+Test Data
+
+Apache POI
+
+Excel-based data-driven testing
+
+Reporting
+
+Extent Reports
+
+TestNG Listeners
+
+Failure screenshots
+
+Build & Version Control
+
+Maven
+
+Git
+
+GitHub
+
+🎤 Interview Project Explanation
+
+Short Version
+
+I developed an E-Commerce Web Application Automation Testing Framework using Java, Selenium WebDriver, TestNG, Maven, REST Assured, Apache POI, and Extent Reports. I automated critical UI workflows such as login, negative login scenarios, product selection, cart, and checkout using the Page Object Model. I also implemented data-driven testing using Excel and REST API automation for GET, POST, PUT, and DELETE operations. The framework includes TestNG smoke, regression, API, and full suites, along with automatic failure screenshots and Extent HTML reporting. The complete suite currently executes 11 tests successfully with zero failures.
+
+📚 What This Project Demonstrates
+
+This project demonstrates how an SDET automation framework can be designed from the ground up.
+
+The framework covers the complete flow:
+
+Application
+     ↓
+Test Planning
+     ↓
+UI Automation
+     ↓
+API Automation
+     ↓
+Data-Driven Testing
+     ↓
+TestNG Execution
+     ↓
+Smoke / Regression Suites
+     ↓
+Failure Handling
+     ↓
+Screenshots
+     ↓
+Extent Reports
+     ↓
+Git / GitHub
+
+👨‍💻 Author
+
+Nivas789
+
+GitHub:
+
+https://github.com/nivas789
+
+Project Repository:
+
+https://github.com/nivas789/ecommerce-automation-framework
+
+⭐ Project Status
+
+PROJECT STATUS: COMPLETED ✅
+
+UI Automation:       ✅
+API Automation:      ✅
+Data-Driven Testing: ✅
+TestNG Suites:       ✅
+Extent Reporting:    ✅
+Screenshots:         ✅
+Git/GitHub:           ✅
+Full Execution:      ✅
+
+Tests Executed:      11
+Tests Passed:        11
+Tests Failed:         0
+
+📌 Conclusion
+
+The E-Commerce Web Application – Automation Testing Framework demonstrates a practical SDET approach to automating web and API testing.
+
+By combining Selenium WebDriver, TestNG, Maven, REST Assured, Apache POI, Page Object Model, Extent Reports, failure screenshots, and Git/GitHub, the project provides a structured and maintainable foundation for real-world automation testing.
